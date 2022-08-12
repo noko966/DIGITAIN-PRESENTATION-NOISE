@@ -10,6 +10,5 @@ void main()
 
     gl_Position = projectedPosition;
 
-    vUv = uv;
 
 }

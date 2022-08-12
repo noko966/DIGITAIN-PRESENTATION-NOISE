@@ -18,10 +18,10 @@ const scene = new THREE.Scene();
  * Water
  */
 // Geometry
-const waterGeometry = new THREE.PlaneGeometry(1, 1, 10, 10);
+const geometry = new THREE.PlaneGeometry(1, 1, 10, 10);
 
 // Material
-const waterMaterial = new THREE.ShaderMaterial({
+const material = new THREE.ShaderMaterial({
   vertexShader: VertexShader,
   fragmentShader: FragmentShader,
   uniforms: {
@@ -30,9 +30,8 @@ const waterMaterial = new THREE.ShaderMaterial({
 });
 
 // Mesh
-const water = new THREE.Mesh(waterGeometry, waterMaterial);
-// water.rotation.x = -Math.PI * 0.5;
-scene.add(water);
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
 
 /**
  * Sizes
@@ -91,7 +90,7 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   //update water time
-  waterMaterial.uniforms.uTime.value = elapsedTime;
+  material.uniforms.uTime.value = elapsedTime;
 
   // Update controls
   controls.update();
